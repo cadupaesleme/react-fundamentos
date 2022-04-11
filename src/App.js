@@ -3,6 +3,8 @@ import Post from "./Post";
 import Header from "./Header";
 import { ThemeProvider } from "./ThemeContext";
 
+import styles from "./App.scss";
+
 function App() {
   const [posts, setPosts] = useState([
     {
@@ -62,7 +64,7 @@ function App() {
     //Fragment
     <ThemeProvider>
       <Header>
-        <h2>
+        <h2 className={styles.title}>
           Posts da semana - Children
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
