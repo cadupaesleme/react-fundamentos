@@ -13,6 +13,7 @@ function App() {
       subtitle: "Subtítulo#01",
       likes: 20,
       read: true,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -20,6 +21,7 @@ function App() {
       subtitle: "Subtítulo#02",
       likes: 10,
       read: false,
+      removed: true,
     },
     {
       id: Math.random(),
@@ -27,11 +29,18 @@ function App() {
       subtitle: "Subtítulo#03",
       likes: 50,
       read: true,
+      removed: false,
     },
   ]);
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+    setPosts((prevState) =>
+      prevState.map((post) =>
+        post.id === postId 
+        ? { ...post, removed: true } 
+        : post
+      )
+    );
   }
 
   function handleRefresh() {
