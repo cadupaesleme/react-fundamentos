@@ -3,7 +3,7 @@ import Post from "../Post/Post";
 import Header from "../Header/Header";
 import { ThemeProvider } from "../../context/ThemeContext";
 
-import styles from "./App.scss";
+import { Title } from "./styles";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -36,9 +36,7 @@ function App() {
   function handleRemovePost(postId) {
     setPosts((prevState) =>
       prevState.map((post) =>
-        post.id === postId 
-        ? { ...post, removed: true } 
-        : post
+        post.id === postId ? { ...post, removed: true } : post
       )
     );
   }
@@ -73,10 +71,10 @@ function App() {
     //Fragment
     <ThemeProvider>
       <Header>
-        <h2 className={styles.title}>
-          Posts da semana - Children
+        <Title as="h2">
+          Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
-        </h2>
+        </Title>
       </Header>
 
       <hr />
